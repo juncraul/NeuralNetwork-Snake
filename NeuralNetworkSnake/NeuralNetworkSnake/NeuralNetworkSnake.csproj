@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEngine.cs" />
+    <Compile Include="ApplicationSettings.cs" />
     <Compile Include="DrawingEngine.cs" />
     <Compile Include="SnakeForm.cs">
       <SubType>Form</SubType>

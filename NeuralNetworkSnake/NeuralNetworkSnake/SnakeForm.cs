@@ -17,7 +17,7 @@ namespace NeuralNetworkSnake
         public SnakeForm()
         {
             InitializeComponent();
-            drawingEngine = new DrawingEngine(pictureBoxSnake, pictureBoxSnake.Size);
+            drawingEngine = DrawingEngine.GetInstance(pictureBoxSnake, pictureBoxSnake.Size);
         }
 
 
