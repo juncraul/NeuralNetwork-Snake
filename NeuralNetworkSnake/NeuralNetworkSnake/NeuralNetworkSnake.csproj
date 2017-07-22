@@ -93,5 +93,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SnakeLogic\SnakeLogic.csproj">
+      <Project>{bd558280-859c-4272-b926-8ed17a9c5954}</Project>
+      <Name>SnakeLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,7 +36,7 @@
             // 
             this.pictureBoxSnake.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxSnake.Name = "pictureBoxSnake";
-            this.pictureBoxSnake.Size = new System.Drawing.Size(653, 460);
+            this.pictureBoxSnake.Size = new System.Drawing.Size(800, 600);
             this.pictureBoxSnake.TabIndex = 0;
             this.pictureBoxSnake.TabStop = false;
             // 

@@ -9,8 +9,21 @@ namespace NeuralNetworkSnake
 {
     public static class ApplicationSettings
     {
-        public static int GridSizeWidth = 10;
-        public static int GridSizeHeight = 10;
-        public static Size GridSize = new Size(15, 15);
+        private static Size _gridSize = new Size(32, 24);
+        private static Size _cellSize = new Size(25, 25);
+        private static Random _random = new Random(0);
+
+        public static Size GridSize
+        {
+            get { return _gridSize; }
+        }
+        public static Size CellSize
+        {
+            get { return _cellSize; }
+        }
+        public static Random Random
+        {
+            get { return _random; }
+        }
     }
 }
