@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mathematics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Mathematics.dll</HintPath>
+    </Reference>
     <Reference Include="NeuralNetwork">
       <HintPath>..\Dependencies\NeuralNetwork.dll</HintPath>
     </Reference>
@@ -44,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Food.cs" />
     <Compile Include="Snake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,12 +12,16 @@ namespace NeuralNetworkSnake
     {
         private static ApplicationEngine _applicationEngineInstance;
 
-        public Snake Snake;
-        
+        public Snake SnakeToDisplay;
+        public List<Snake> CurrentSnakeGeneration;
+
+        public List<List<Snake>> AllSnakeGenerations;
 
         private ApplicationEngine()
         {
-            Snake = new Snake(new Point(5, 5), ApplicationSettings.GridSize, ApplicationSettings.CellSize, ApplicationSettings.Random);
+            AllSnakeGenerations = new List<List<Snake>>();
+            CreateNewGeneration();
+            SnakeToDisplay = CurrentSnakeGeneration[0];
         }
 
         public static ApplicationEngine GetInstance()
@@ -27,7 +31,42 @@ namespace NeuralNetworkSnake
 
         public void DoLogic()
         {
-            Snake.Move(Snake.MoveDirection.Right);
+            if(IsGenerationOver())
+            {
+                CreateNewGeneration();
+            }
+            foreach (Snake s in CurrentSnakeGeneration)
+            {
+                s.DoLogic();
+            }
+        }
+
+        private void CreateNewGeneration()
+        {
+            List<Snake> snakes = new List<Snake>();
+            for(int i = 0; i < ApplicationSettings.SnakesPerGeneration; i ++)
+            {
+                snakes.Add(GetNewSnake());
+            }
+            SnakeToDisplay = snakes[0];
+            CurrentSnakeGeneration = snakes;
+            AllSnakeGenerations.Add(snakes);
+        }
+
+        private Snake GetNewSnake()
+        {
+            Point SnakePosition = new Point(ApplicationSettings.Random.Next() % ApplicationSettings.GridSize.Width, ApplicationSettings.Random.Next() % ApplicationSettings.GridSize.Height);
+            return new Snake(SnakePosition, ApplicationSettings.GridSize, ApplicationSettings.CellSize, ApplicationSettings.Random);
+        }
+
+        private bool IsGenerationOver()
+        {
+            foreach(Snake s in CurrentSnakeGeneration)
+            {
+                if (s.IsAlive)
+                    return false;
+            }
+            return true;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace NeuralNetworkSnake
         private static Size _gridSize = new Size(32, 24);
         private static Size _cellSize = new Size(25, 25);
         private static Random _random = new Random(0);
+        private static int _snakesPerGeneration = 10;
 
         public static Size GridSize
         {
@@ -24,6 +25,10 @@ namespace NeuralNetworkSnake
         public static Random Random
         {
             get { return _random; }
+        }
+        public static int SnakesPerGeneration
+        {
+            get { return _snakesPerGeneration; }
         }
     }
 }

@@ -25,10 +25,10 @@ namespace NeuralNetworkSnake
 
         public void Draw()
         {
-            Brush brush = Brushes.Red;
-            _canvasSnake.Graphics.FillRectangle(brush, new Rectangle(0, 0, 800, 600));
-            DrawGrid();
+            Brush brush = Brushes.White;
+            _canvasSnake.Graphics.FillRectangle(brush, new Rectangle(0, 0, _pictureBox.Width, _pictureBox.Height));
             DrawObjects();
+            DrawGrid();
             _pictureBox.Image = _canvasSnake.Bitmap;
         }
         
@@ -45,14 +45,14 @@ namespace NeuralNetworkSnake
                 {
                     _canvasSnake.Graphics.DrawRectangle(pen, new Rectangle(i * ApplicationSettings.CellSize.Width,
                                                                            j * ApplicationSettings.CellSize.Height,
-                                                                           ApplicationSettings.CellSize.Width,
-                                                                           ApplicationSettings.CellSize.Height));
+                                                                           ApplicationSettings.CellSize.Width - 1,
+                                                                           ApplicationSettings.CellSize.Height - 1));
                 }
         }
 
         private void DrawObjects()
         {
-            _applicationEngine.Snake.Draw(_canvasSnake.Graphics);
+            _applicationEngine.SnakeToDisplay.Draw(_canvasSnake.Graphics);
         }
     }
 }
